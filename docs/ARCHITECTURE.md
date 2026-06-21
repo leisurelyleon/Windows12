@@ -7,11 +7,11 @@ Project Rebirth rejects the monolith model of legacy operating systems. The foun
 |                      SHELLHOST UI                       |
 |   (WinUI 3 / XAML Compositor / Touch-Optimized Layer)   |
 +---------------------------------------------------------+
-│
-▼ Asynchronous IPC (C++/WinRT)
+                            │
+                            ▼ Asynchronous IPC (C++/WinRT)
 +---------------------------------------------------------+
 |                    COREPC SUBSYSTEM                     |
-|  (C++23 Kernel Layer / Time Travel / NUPS Package Engine)|
+| (C++23 Kernel Layer / Time Travel / NUPS Package Engine)|
 +---------------------------------------------------------+
 
 ## Hardware and Execution Policies
