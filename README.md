@@ -1,5 +1,7 @@
 # Windows 12: Project "Rebirth" (Codename: Hudson Valley Next)
 
+![Windows 12](https://cdn.neowin.com/news/images/uploaded/2024/01/1705485737_screenshot_1303.jpg)
+
 ## Executive Overview
 Project "Rebirth" is a highly advanced, conceptual source code architecture simulating the impending 2027 release of Microsoft's Windows 12. Operating under the core philosophy of "Just Like Home," this operating system environment actively diverges from the industry trajectory of locked-down, cloud-reliant software. Instead, it restores absolute computing autonomy to the power user. 
 
