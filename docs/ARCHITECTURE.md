@@ -3,6 +3,7 @@
 ## Subsystem Decoupling Model
 Project Rebirth rejects the monolith model of legacy operating systems. The foundational architecture enforces a rigid boundary between low-level state orchestration (`CorePC`) and the presentation layer (`ShellHost`). Communication across these boundaries occurs exclusively via strongly-typed, asynchronous Inter-Process Communication (IPC) channels running over high-speed local loopbacks.
 
+```text
 +---------------------------------------------------------+
 |                      SHELLHOST UI                       |
 |   (WinUI 3 / XAML Compositor / Touch-Optimized Layer)   |
@@ -13,6 +14,7 @@ Project Rebirth rejects the monolith model of legacy operating systems. The foun
 |                    COREPC SUBSYSTEM                     |
 | (C++23 Kernel Layer / Time Travel / NUPS Package Engine)|
 +---------------------------------------------------------+
+```
 
 ## Hardware and Execution Policies
 1. **Isolated Execution Domains:** Low-level features like the Native Universal Package System (NUPS) compile to isolated containerized environments. They interact directly with hardware device nodes, bypassing traditional, fragile OS registries entirely.
