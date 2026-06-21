@@ -3,17 +3,12 @@
 ## Subsystem Decoupling Model
 Project Rebirth rejects the monolith model of legacy operating systems. The foundational architecture enforces a rigid boundary between low-level state orchestration (`CorePC`) and the presentation layer (`ShellHost`). Communication across these boundaries occurs exclusively via strongly-typed, asynchronous Inter-Process Communication (IPC) channels running over high-speed local loopbacks.
 
-```text
-+---------------------------------------------------------+
-|                      SHELLHOST UI                       |
-|   (WinUI 3 / XAML Compositor / Touch-Optimized Layer)   |
-+---------------------------------------------------------+
-                            │
-                            ▼ Asynchronous IPC (C++/WinRT)
-+---------------------------------------------------------+
-|                    COREPC SUBSYSTEM                     |
-| (C++23 Kernel Layer / Time Travel / NUPS Package Engine)|
-+---------------------------------------------------------+
+```mermaid
+flowchart TD
+    Shell["SHELLHOST UI\n(WinUI 3 / XAML Compositor / Touch-Optimized Layer)"]
+    Core["COREPC SUBSYSTEM\n(C++23 Kernel Layer / Time Travel / NUPS Package Engine)"]
+
+    Shell -- "Asynchronous IPC (C++/WinRT)" --> Core
 ```
 
 ## Hardware and Execution Policies
