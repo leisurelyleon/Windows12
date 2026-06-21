@@ -1,0 +1,32 @@
+name: ShellHost UI & Frontend CI
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-ui:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Install WinUI 3 and Workloads
+      run: dotnet workload install winui
+
+    - name: Restore NuGet Dependencies
+      run: dotnet restore src/UI_Components/UI_Components.sln
+
+    - name: Build ShellHost UI Components
+      run: dotnet build src/UI_Components/UI_Components.sln --configuration Release --no-restore
+
+    - name: Execute UI Component Verification Tests
+      run: dotnet test src/UI_Components/UI_Components.sln --configuration Release --no-build
