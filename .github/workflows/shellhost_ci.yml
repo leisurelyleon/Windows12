@@ -20,10 +20,12 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Restore NuGet Dependencies
-      run: dotnet restore src/UI_Components/
+      run: dotnet restore src/UI_Components/UI_Components.csproj
 
     - name: Build ShellHost UI Components
-      run: dotnet build src/UI_Components/ --configuration Release --no-restore
+      # Forced x64 platform targeting to satisfy WinUI 3 Self-Contained mode
+      run: dotnet build src/UI_Components/UI_Components.csproj --configuration Release -p:Platform=x64 --no-restore
 
     - name: Execute UI Component Verification Tests
-      run: dotnet test src/UI_Components/ --configuration Release --no-build
+      # Forced x64 platform targeting to match the build output
+      run: dotnet test src/UI_Components/UI_Components.csproj --configuration Release -p:Platform=x64 --no-build
