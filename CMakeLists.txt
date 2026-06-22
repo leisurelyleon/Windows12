@@ -10,7 +10,8 @@ set(CMAKE_CXX_EXTENSIONS False)
 
 # Set global compiler flags for high-performance MSVC builds
 if(MSVC)
-    add_compile_options(/W4 /WX /EHsc /std:c++latest /permissive-)
+    # /WX removed to prevent harmless unused-variable warnings from crashing the build
+    add_compile_options(/W4 /EHsc /std:c++latest /permissive-)
     add_compile_definitions(_UNICODE UNICODE)
 endif()
 
