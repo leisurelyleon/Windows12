@@ -3,14 +3,15 @@
 
 using namespace CorePC::TimeTravel;
 
+// Explicitly declare the external function to fix Error C3861
+namespace CorePC::TimeTravel {
+    extern bool VerifyDeltaIntegrity();
+}
+
 class TimeTravelTestFixture : public ::testing::Test {
 protected:
-    void SetUp() override {
-        // Prepare mock isolated storage directory for DAG nodes
-    }
-    void TearDown() override {
-        // Clean up mock DAG nodes
-    }
+    void SetUp() override {}
+    void TearDown() override {}
 };
 
 TEST_F(TimeTravelTestFixture, DaemonInitializationTest) {
@@ -26,9 +27,8 @@ TEST_F(TimeTravelTestFixture, DaemonInitializationTest) {
 }
 
 TEST_F(TimeTravelTestFixture, DeltaIntegrityValidation) {
-    // Inject artificial memory page modifications
-    // Verify the DeltaStorageLayer correctly compresses and hashes the change
-    bool integrityValid = VerifyDeltaIntegrity(); // Bridged from DeltaStorageLayer.cpp
+    // Call the newly declared external function
+    bool integrityValid = CorePC::TimeTravel::VerifyDeltaIntegrity();
     EXPECT_TRUE(integrityValid);
 }
 
