@@ -1,0 +1,19 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="SunsetDefault.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+        <ResourceDictionary x:Key="HighContrast">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DarkModeOverride.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+</ResourceDictionary>
