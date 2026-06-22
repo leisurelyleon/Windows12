@@ -1,0 +1,13 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="TaskbarBackgroundBrush" Color="#CC111111"/>
+    <SolidColorBrush x:Key="SurfaceBackgroundBrush" Color="#F2111111"/>
+    <SolidColorBrush x:Key="TaskbarBorderBrush" Color="#44222222"/>
+    
+    <SolidColorBrush x:Key="PrimaryIconColor" Color="#FFFFFFFF"/>
+    <SolidColorBrush x:Key="SeparatorBrush" Color="#33FFFFFF"/>
+    <SolidColorBrush x:Key="AccentColorBrush" Color="#FF222222"/>
+
+</ResourceDictionary>
