@@ -1,14 +1,6 @@
-# ShellHost Presentation Layer Executable
-add_executable(ShellHostMain
-    ShellHostMain.cpp
-    Compositor/SunsetGradientRenderer.cpp
-    Compositor/GlassMicaEngine.cpp
-    Compositor/AnimationController.cpp
-    RetroShell/LegacyThemeEngine.cpp
-    RetroShell/XPSkinMapper.cpp
-    RetroShell/AeroGlassSimulator.cpp
-    WindowManager/ModularSnap.cpp
-    WindowManager/FloatingContainer.cpp
-)
+# Automatically find all C++ source files in ShellHost and subdirectories
+file(GLOB_RECURSE SHELLHOST_SOURCES "*.cpp")
 
+# ShellHost Presentation Layer Executable
+add_executable(ShellHostMain ${SHELLHOST_SOURCES})
 target_include_directories(ShellHostMain PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
