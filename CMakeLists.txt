@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.25)
 
 # Initialize Project Rebirth (Windows 12)
-project(Windows12_Rebirth VERSION 1.0.0 LANGUAGES CXX CSharp)
+project(Windows12_Rebirth VERSION 1.0.0 LANGUAGES CXX)
 
 # Enforce strict modern C++ standards for deep system hooks
 set(CMAKE_CXX_STANDARD 23)
@@ -15,7 +15,7 @@ if(MSVC)
 endif()
 
 # ---------------------------------------------------------
-# Subsystem Includes
+# Subsystem Includes (C++ Core Native Only)
 # ---------------------------------------------------------
 
 # Low-level system abstractions (Time Travel, Dev Workspace, NUPS)
@@ -23,9 +23,6 @@ add_subdirectory(src/CorePC)
 
 # Window Manager, Compositor, and Retro-Shell compatibility layer
 add_subdirectory(src/ShellHost)
-
-# Frontend XAML / WinUI 3 Interfaces (Floating Taskbar, Sunset Theme)
-add_subdirectory(src/UI_Components)
 
 # Out-of-Box Experience (Bloat-Free Installer)
 add_subdirectory(src/OOBE)
