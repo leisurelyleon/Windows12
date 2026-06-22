@@ -1,0 +1,34 @@
+{
+  "ProjectRebirth_Installation_Policy": {
+    "Philosophy": "Just Like Home",
+    "TargetEnvironment": "PowerUser_Unrestricted",
+    
+    "Telemetry_Overloads": {
+      "DiagnosticData": 0,
+      "ConnectedUserExperiences": false,
+      "LocationTrackingDefault": false,
+      "AdvertisingID_Generation": false
+    },
+    
+    "Application_Payload_Filters": {
+      "BlockThirdPartyPreinstalls": true,
+      "BlockConsumerSuggestions": true,
+      "PermittedSystemApps": [
+        "Terminal",
+        "DevWorkspace",
+        "Explorer",
+        "Settings"
+      ],
+      "BlockedSystemApps": [
+        "RetailDemo",
+        "ConsumerSkype",
+        "BingWebSearchIntegration"
+      ]
+    },
+
+    "Account_Policy": {
+      "ForceLocalAccountAvailable": true,
+      "RequireCloudSignon": false
+    }
+  }
+}
