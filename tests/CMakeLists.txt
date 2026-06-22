@@ -6,12 +6,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-# Compile TimeTravel Unit Tests
-add_executable(TimeTravelTests CorePCTests/TimeTravel_UnitTests.cpp)
+# Automatically map the test files to prevent pathing failures
+file(GLOB_RECURSE TIMETRAVEL_TESTS "CorePCTests/*.cpp")
+add_executable(TimeTravelTests ${TIMETRAVEL_TESTS})
 target_link_libraries(TimeTravelTests GTest::gtest_main CorePC)
 
-# Compile PackageUnified Unit Tests
-add_executable(CleanInstallTests PackageUnifiedTests/CleanInstallTests.cpp)
+file(GLOB_RECURSE PACKAGE_TESTS "PackageUnifiedTests/*.cpp")
+add_executable(CleanInstallTests ${PACKAGE_TESTS})
 target_link_libraries(CleanInstallTests GTest::gtest_main CorePC)
 
 # Register with CTest
