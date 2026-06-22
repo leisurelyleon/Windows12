@@ -1,0 +1,34 @@
+<UserControl
+    x:Class="Windows12.UI_Components.TaskbarFloat.Taskbar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    PointerPressed="OnPointerPressed"
+    PointerMoved="OnPointerMoved"
+    PointerReleased="OnPointerReleased">
+
+    <Border Background="{ThemeResource TaskbarBackgroundBrush}" 
+            CornerRadius="20" 
+            BorderThickness="1" 
+            BorderBrush="{ThemeResource TaskbarBorderBrush}"
+            Padding="16,8,16,8"
+            Shadow="{ThemeResource FloatingElevationShadow}">
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="12">
+            <Button Width="48" Height="48" CornerRadius="12" Background="Transparent" Click="OnStartMenuClicked">
+                <FontIcon Glyph="&#xE7EF;" FontSize="20" Foreground="{ThemeResource PrimaryIconColor}"/>
+            </Button>
+            
+            <Rectangle Width="1" Height="24" Fill="{ThemeResource SeparatorBrush}" Margin="8,0"/>
+
+            <Button Width="44" Height="44" CornerRadius="12" Background="Transparent" ToolTipService.ToolTip="Dev Workspace">
+                <FontIcon Glyph="&#xE943;" FontSize="18" Foreground="{ThemeResource PrimaryIconColor}"/>
+            </Button>
+            <Button Width="44" Height="44" CornerRadius="12" Background="Transparent" ToolTipService.ToolTip="File Explorer">
+                <FontIcon Glyph="&#xE8B7;" FontSize="18" Foreground="{ThemeResource PrimaryIconColor}"/>
+            </Button>
+            <Button Width="44" Height="44" CornerRadius="12" Background="Transparent" ToolTipService.ToolTip="Terminal">
+                <FontIcon Glyph="&#xE756;" FontSize="18" Foreground="{ThemeResource PrimaryIconColor}"/>
+            </Button>
+        </StackPanel>
+    </Border>
+</UserControl>
