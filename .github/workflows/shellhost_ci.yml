@@ -19,14 +19,11 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
-    - name: Install WinUI 3 and Workloads
-      run: dotnet workload install winui
-
     - name: Restore NuGet Dependencies
-      run: dotnet restore src/UI_Components/UI_Components.sln
+      run: dotnet restore src/UI_Components/UI_Components.csproj
 
     - name: Build ShellHost UI Components
-      run: dotnet build src/UI_Components/UI_Components.sln --configuration Release --no-restore
+      run: dotnet build src/UI_Components/UI_Components.csproj --configuration Release --no-restore
 
     - name: Execute UI Component Verification Tests
-      run: dotnet test src/UI_Components/UI_Components.sln --configuration Release --no-build
+      run: dotnet test src/UI_Components/UI_Components.csproj --configuration Release --no-build
