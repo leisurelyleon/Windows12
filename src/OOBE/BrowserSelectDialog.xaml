@@ -1,0 +1,21 @@
+<ContentDialog
+    x:Class="Windows12.OOBE.BrowserSelectDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Select Default Web Engine"
+    PrimaryButtonText="Confirm Selection"
+    CloseButtonText="Skip">
+
+    <StackPanel Spacing="16">
+        <TextBlock Text="Project Rebirth will natively integrate your chosen engine into the Native Universal Package System." 
+                   TextWrapping="Wrap"/>
+        
+        <GridView SelectionMode="Single" x:Name="BrowserGrid">
+            <GridViewItem Content="Mozilla Firefox" Tag="firefox_installer"/>
+            <GridViewItem Content="Brave Browser" Tag="brave_installer"/>
+            <GridViewItem Content="Google Chrome" Tag="chrome_installer"/>
+            <GridViewItem Content="Microsoft Edge" Tag="edge_installer"/>
+            <GridViewItem Content="Vivaldi" Tag="vivaldi_installer"/>
+        </GridView>
+    </StackPanel>
+</ContentDialog>
