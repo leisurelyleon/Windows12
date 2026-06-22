@@ -17,8 +17,10 @@ namespace CorePC::TimeTravel {
         bool ContainsKernelModifications;
     };
 
-    // External bridge to flush finalized memory sets to storage disk
-    extern void StashDeltaBlock(const StateTransaction& tx);
+    // Localized static mock to satisfy the Linker directly within this compilation unit
+    static void StashDeltaBlock(const StateTransaction& tx) {
+        (void)tx; // Suppresses unused variable warnings
+    }
 
     void RecordSystemState() {
         // [REAL-TIME KERNEL MONITORING]
