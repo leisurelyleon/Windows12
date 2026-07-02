@@ -1,7 +1,5 @@
-# Fetch GoogleTest directly for automated CI environments
+# Fetch GoogleTest safely
 include(FetchContent)
-
-# Force static linking for GTest to prevent missing DLL errors at runtime
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 
@@ -11,16 +9,17 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
+# Use CMake's built-in GoogleTest integration to automatically resolve executable paths
+include(GoogleTest)
+
 # Compile TimeTravel Unit Tests
 file(GLOB_RECURSE TIMETRAVEL_TESTS "CorePCTests/*.cpp")
 add_executable(TimeTravelTests ${TIMETRAVEL_TESTS})
 target_link_libraries(TimeTravelTests GTest::gtest_main CorePC)
+gtest_discover_tests(TimeTravelTests)
 
 # Compile PackageUnified Unit Tests
 file(GLOB_RECURSE PACKAGE_TESTS "PackageUnifiedTests/*.cpp")
 add_executable(CleanInstallTests ${PACKAGE_TESTS})
 target_link_libraries(CleanInstallTests GTest::gtest_main CorePC)
-
-# Register with CTest using Generator Expressions to resolve MSVC Debug/Release subdirectories
-add_test(NAME TimeTravel_UnitTests COMMAND $<TARGET_FILE:TimeTravelTests>)
-add_test(NAME NUPS_CleanInstallTests COMMAND $<TARGET_FILE:CleanInstallTests>)
+gtest_discover_tests(CleanInstallTests)
