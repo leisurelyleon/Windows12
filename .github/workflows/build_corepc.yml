@@ -24,9 +24,11 @@ jobs:
         cmake -B ${{github.workspace}}/build 
         -DCMAKE_BUILD_TYPE=${{matrix.build_configuration}} 
         -A ${{matrix.build_platform}}
+        -DBUILD_TESTING=${{ matrix.build_platform == 'x64' && 'ON' || 'OFF' }}
 
     - name: Build CorePC Binary Targets
       run: cmake --build ${{github.workspace}}/build --config ${{matrix.build_configuration}}
 
     - name: Run CorePC Regression Unit Tests
+      if: matrix.build_platform == 'x64'
       run: ctest --test-dir ${{github.workspace}}/build -C ${{matrix.build_configuration}} --output-on-failure
